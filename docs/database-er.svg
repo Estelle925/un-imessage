@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1677ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0958d9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#52c41a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#389e0d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa8c16;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d46b08;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="900" fill="#f5f7fa"/>
+  <text x="600" y="35" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#1f1f1f">UniMessage 数据库 ER 图</text>
+
+  <!-- sys_user -->
+  <g transform="translate(30, 60)">
+    <rect x="0" y="0" width="200" height="160" rx="6" fill="white" stroke="#1677ff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="30" rx="6" fill="url(#blueGrad)"/>
+    <rect x="0" y="24" width="200" height="6" fill="url(#blueGrad)"/>
+    <text x="100" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">sys_user</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   username VARCHAR(50)</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   password VARCHAR(100)</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#333">   nickname VARCHAR(50)</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#333">   status TINYINT</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="10" y="140" font-family="monospace" font-size="9" fill="#333">   updated_at DATETIME</text>
+    <text x="100" y="155" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">系统用户表</text>
+  </g>
+  
+  <!-- sys_app -->
+  <g transform="translate(260, 60)">
+    <rect x="0" y="0" width="200" height="190" rx="6" fill="white" stroke="#1677ff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="30" rx="6" fill="url(#blueGrad)"/>
+    <rect x="0" y="24" width="200" height="6" fill="url(#blueGrad)"/>
+    <text x="100" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">sys_app</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   app_name VARCHAR(50)</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   app_code VARCHAR(50) UK</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#333">   app_key VARCHAR(64)</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#333">   app_secret VARCHAR(128)</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   status TINYINT</text>
+    <text x="10" y="140" font-family="monospace" font-size="9" fill="#333">   owner VARCHAR(50)</text>
+    <text x="10" y="155" font-family="monospace" font-size="9" fill="#333">   description VARCHAR(255)</text>
+    <text x="10" y="170" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="100" y="185" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">接入应用表</text>
+  </g>
+  
+  <!-- sys_channel -->
+  <g transform="translate(490, 60)">
+    <rect x="0" y="0" width="200" height="160" rx="6" fill="white" stroke="#52c41a" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="30" rx="6" fill="url(#greenGrad)"/>
+    <rect x="0" y="24" width="200" height="6" fill="url(#greenGrad)"/>
+    <text x="100" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">sys_channel</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   name VARCHAR(50)</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   type VARCHAR(20)</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#333">   provider VARCHAR(20)</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#333">   config_json TEXT</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   status TINYINT</text>
+    <text x="10" y="140" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="100" y="155" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">渠道配置表</text>
+  </g>
+
+  <!-- sys_template -->
+  <g transform="translate(720, 60)">
+    <rect x="0" y="0" width="220" height="250" rx="6" fill="white" stroke="#52c41a" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="220" height="30" rx="6" fill="url(#greenGrad)"/>
+    <rect x="0" y="24" width="220" height="6" fill="url(#greenGrad)"/>
+    <text x="110" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">sys_template</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   name VARCHAR(50)</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   code VARCHAR(50) UK</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#fa8c16">🔗 channel_id BIGINT FK</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#333">   msg_type TINYINT</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   third_party_id VARCHAR(64)</text>
+    <text x="10" y="140" font-family="monospace" font-size="9" fill="#333">   title VARCHAR(100)</text>
+    <text x="10" y="155" font-family="monospace" font-size="9" fill="#333">   content TEXT</text>
+    <text x="10" y="170" font-family="monospace" font-size="9" fill="#333">   variables VARCHAR(255)</text>
+    <text x="10" y="185" font-family="monospace" font-size="9" fill="#333">   recipient_group_ids</text>
+    <text x="10" y="200" font-family="monospace" font-size="9" fill="#333">   recipient_ids</text>
+    <text x="10" y="215" font-family="monospace" font-size="9" fill="#333">   status TINYINT</text>
+    <text x="10" y="230" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="110" y="245" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">消息模板表</text>
+  </g>
+  
+  <!-- sys_recipient -->
+  <g transform="translate(970, 60)">
+    <rect x="0" y="0" width="200" height="190" rx="6" fill="white" stroke="#1677ff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="30" rx="6" fill="url(#blueGrad)"/>
+    <rect x="0" y="24" width="200" height="6" fill="url(#blueGrad)"/>
+    <text x="100" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">sys_recipient</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   name VARCHAR(50)</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   mobile VARCHAR(20)</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#333">   email VARCHAR(100)</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#333">   open_id VARCHAR(100)</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   user_id VARCHAR(100)</text>
+    <text x="10" y="140" font-family="monospace" font-size="9" fill="#333">   status TINYINT</text>
+    <text x="10" y="155" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="10" y="170" font-family="monospace" font-size="9" fill="#333">   updated_at DATETIME</text>
+    <text x="100" y="185" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">接收者表</text>
+  </g>
+
+  <!-- sys_recipient_group -->
+  <g transform="translate(30, 340)">
+    <rect x="0" y="0" width="200" height="145" rx="6" fill="white" stroke="#1677ff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="30" rx="6" fill="url(#blueGrad)"/>
+    <rect x="0" y="24" width="200" height="6" fill="url(#blueGrad)"/>
+    <text x="100" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">sys_recipient_group</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   name VARCHAR(50)</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   code VARCHAR(50)</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#333">   description VARCHAR(255)</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   updated_at DATETIME</text>
+    <text x="100" y="140" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">接收者分组表</text>
+  </g>
+  
+  <!-- sys_recipient_group_relation -->
+  <g transform="translate(260, 340)">
+    <rect x="0" y="0" width="200" height="100" rx="6" fill="white" stroke="#fa8c16" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="30" rx="6" fill="url(#orangeGrad)"/>
+    <rect x="0" y="24" width="200" height="6" fill="url(#orangeGrad)"/>
+    <text x="100" y="20" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="white">sys_recipient_group_relation</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#fa8c16">🔗 group_id BIGINT FK</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#fa8c16">🔗 recipient_id BIGINT FK</text>
+    <text x="100" y="95" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">分组关联表 (多对多)</text>
+  </g>
+  
+  <!-- log_msg_batch -->
+  <g transform="translate(490, 340)">
+    <rect x="0" y="0" width="220" height="295" rx="6" fill="white" stroke="#fa8c16" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="220" height="30" rx="6" fill="url(#orangeGrad)"/>
+    <rect x="0" y="24" width="220" height="6" fill="url(#orangeGrad)"/>
+    <text x="110" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">log_msg_batch</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   batch_no VARCHAR(64) UK</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#fa8c16">🔗 app_id BIGINT FK</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#fa8c16">🔗 template_id BIGINT FK</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#fa8c16">🔗 channel_id BIGINT FK</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   msg_type TINYINT</text>
+    <text x="10" y="140" font-family="monospace" font-size="9" fill="#333">   title VARCHAR(100)</text>
+    <text x="10" y="155" font-family="monospace" font-size="9" fill="#333">   template_name VARCHAR(100)</text>
+    <text x="10" y="170" font-family="monospace" font-size="9" fill="#333">   channel_name VARCHAR(100)</text>
+    <text x="10" y="185" font-family="monospace" font-size="9" fill="#333">   content TEXT</text>
+    <text x="10" y="200" font-family="monospace" font-size="9" fill="#333">   content_params TEXT</text>
+    <text x="10" y="215" font-family="monospace" font-size="9" fill="#333">   total_count INT</text>
+    <text x="10" y="230" font-family="monospace" font-size="9" fill="#333">   success_count INT</text>
+    <text x="10" y="245" font-family="monospace" font-size="9" fill="#333">   fail_count INT</text>
+    <text x="10" y="260" font-family="monospace" font-size="9" fill="#333">   status TINYINT</text>
+    <text x="10" y="275" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="110" y="290" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">消息发送批次记录表</text>
+  </g>
+
+  <!-- log_msg_detail -->
+  <g transform="translate(740, 340)">
+    <rect x="0" y="0" width="220" height="235" rx="6" fill="white" stroke="#fa8c16" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="220" height="30" rx="6" fill="url(#orangeGrad)"/>
+    <rect x="0" y="24" width="220" height="6" fill="url(#orangeGrad)"/>
+    <text x="110" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">log_msg_detail</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#fa8c16">🔗 batch_id BIGINT FK</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   recipient VARCHAR(100)</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#333">   recipient_name VARCHAR(100)</text>
+    <text x="10" y="110" font-family="monospace" font-size="9" fill="#333">   content TEXT</text>
+    <text x="10" y="125" font-family="monospace" font-size="9" fill="#333">   status TINYINT</text>
+    <text x="10" y="140" font-family="monospace" font-size="9" fill="#333">   third_party_msg_id</text>
+    <text x="10" y="155" font-family="monospace" font-size="9" fill="#333">   error_msg VARCHAR(255)</text>
+    <text x="10" y="170" font-family="monospace" font-size="9" fill="#333">   retry_count INT</text>
+    <text x="10" y="185" font-family="monospace" font-size="9" fill="#333">   send_time DATETIME</text>
+    <text x="10" y="200" font-family="monospace" font-size="9" fill="#333">   created_at DATETIME</text>
+    <text x="110" y="230" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">消息发送详情表</text>
+  </g>
+  
+  <!-- sys_config -->
+  <g transform="translate(990, 340)">
+    <rect x="0" y="0" width="180" height="115" rx="6" fill="white" stroke="#1677ff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="30" rx="6" fill="url(#blueGrad)"/>
+    <rect x="0" y="24" width="180" height="6" fill="url(#blueGrad)"/>
+    <text x="90" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">sys_config</text>
+    <text x="10" y="50" font-family="monospace" font-size="9" fill="#333">🔑 id BIGINT PK</text>
+    <text x="10" y="65" font-family="monospace" font-size="9" fill="#333">   system_name VARCHAR(100)</text>
+    <text x="10" y="80" font-family="monospace" font-size="9" fill="#333">   logo LONGTEXT</text>
+    <text x="10" y="95" font-family="monospace" font-size="9" fill="#333">   icon LONGTEXT</text>
+    <text x="90" y="110" text-anchor="middle" font-family="Arial" font-size="8" fill="#8c8c8c">系统基础配置表</text>
+  </g>
+  
+  <!-- Relationship Lines -->
+  <!-- sys_template -> sys_channel -->
+  <line x1="720" y1="155" x2="690" y2="155" stroke="#52c41a" stroke-width="2"/>
+  <circle cx="690" cy="155" r="4" fill="#52c41a"/>
+  
+  <!-- log_msg_batch -> sys_app -->
+  <path d="M 490 420 L 460 420" stroke="#fa8c16" stroke-width="1.5" stroke-dasharray="5,3"/>
+  
+  <!-- log_msg_batch -> sys_template -->
+  <path d="M 600 340 L 830 310" stroke="#fa8c16" stroke-width="1.5" stroke-dasharray="5,3"/>
+  
+  <!-- log_msg_batch -> sys_channel -->
+  <path d="M 550 340 L 590 220" stroke="#fa8c16" stroke-width="1.5" stroke-dasharray="5,3"/>
+  
+  <!-- log_msg_detail -> log_msg_batch -->
+  <line x1="740" y1="405" x2="710" y2="405" stroke="#fa8c16" stroke-width="2"/>
+  <circle cx="710" cy="405" r="4" fill="#fa8c16"/>
+  
+  <!-- sys_recipient_group_relation -> sys_recipient_group -->
+  <line x1="260" y1="380" x2="230" y2="380" stroke="#fa8c16" stroke-width="2"/>
+  <circle cx="230" cy="380" r="4" fill="#fa8c16"/>
+  
+  <!-- sys_recipient_group_relation -> sys_recipient -->
+  <path d="M 460 380 L 970 200" stroke="#fa8c16" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Legend -->
+  <g transform="translate(30, 680)">
+    <rect x="0" y="0" width="400" height="100" rx="6" fill="white" stroke="#d9d9d9" stroke-width="1"/>
+    <text x="200" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1f1f1f">图例说明</text>
+    <rect x="20" y="35" width="20" height="14" rx="2" fill="url(#blueGrad)"/>
+    <text x="50" y="46" font-family="Arial" font-size="10" fill="#666">系统配置表</text>
+    <rect x="130" y="35" width="20" height="14" rx="2" fill="url(#greenGrad)"/>
+    <text x="160" y="46" font-family="Arial" font-size="10" fill="#666">业务核心表</text>
+    <rect x="250" y="35" width="20" height="14" rx="2" fill="url(#orangeGrad)"/>
+    <text x="280" y="46" font-family="Arial" font-size="10" fill="#666">日志记录表</text>
+    <text x="20" y="70" font-family="monospace" font-size="9" fill="#333">🔑 主键 (PK)</text>
+    <text x="130" y="70" font-family="monospace" font-size="9" fill="#fa8c16">🔗 外键 (FK)</text>
+    <text x="250" y="70" font-family="Arial" font-size="9" fill="#666">UK = 唯一索引</text>
+    <line x1="20" y1="85" x2="60" y2="85" stroke="#fa8c16" stroke-width="2"/>
+    <text x="70" y="88" font-family="Arial" font-size="9" fill="#666">关联关系</text>
+    <line x1="150" y1="85" x2="190" y2="85" stroke="#fa8c16" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="200" y="88" font-family="Arial" font-size="9" fill="#666">逻辑关联</text>
+  </g>
+  
+  <!-- Status Codes -->
+  <g transform="translate(460, 680)">
+    <rect x="0" y="0" width="350" height="100" rx="6" fill="white" stroke="#d9d9d9" stroke-width="1"/>
+    <text x="175" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1f1f1f">状态码说明</text>
+    <text x="20" y="42" font-family="Arial" font-size="9" fill="#666">msg_type: 10通知 | 20营销 | 30验证码</text>
+    <text x="20" y="58" font-family="Arial" font-size="9" fill="#666">batch.status: 0处理中 | 10全部成功 | 20部分成功 | 30全部失败</text>
+    <text x="20" y="74" font-family="Arial" font-size="9" fill="#666">detail.status: 10发送中 | 20发送成功 | 30发送失败</text>
+    <text x="20" y="90" font-family="Arial" font-size="9" fill="#666">通用status: 1启用 | 0禁用</text>
+  </g>
+  
+  <!-- Channel Types -->
+  <g transform="translate(840, 680)">
+    <rect x="0" y="0" width="330" height="100" rx="6" fill="white" stroke="#d9d9d9" stroke-width="1"/>
+    <text x="165" y="20" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1f1f1f">渠道类型 (channel.type)</text>
+    <text x="20" y="42" font-family="Arial" font-size="9" fill="#666">SMS - 短信</text>
+    <text x="120" y="42" font-family="Arial" font-size="9" fill="#666">EMAIL - 邮件</text>
+    <text x="20" y="58" font-family="Arial" font-size="9" fill="#666">WECHAT_OFFICIAL - 微信服务号</text>
+    <text x="20" y="74" font-family="Arial" font-size="9" fill="#666">WECHAT_WORK - 企业微信</text>
+    <text x="20" y="90" font-family="Arial" font-size="9" fill="#666">DINGTALK - 钉钉 | FEISHU - 飞书</text>
+  </g>
+  
+  <!-- Version -->
+  <text x="1150" y="880" text-anchor="end" font-family="Arial" font-size="9" fill="#bfbfbf">v1.0 | 2025-12-24</text>
+</svg>

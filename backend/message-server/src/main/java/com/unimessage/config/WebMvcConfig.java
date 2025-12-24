@@ -1,0 +1,39 @@
+package com.unimessage.config;
+
+import cn.dev33.satoken.interceptor.SaInterceptor;
+import cn.dev33.satoken.stp.StpUtil;
+import com.unimessage.interceptor.AppAuthInterceptor;
+import jakarta.annotation.Resource;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * Web MVC 配置
+ *
+ * @author 海明
+ * @since 2025-12-04
+ */
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    @Resource
+    private AppAuthInterceptor appAuthInterceptor;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // App 鉴权拦截器 - 仅针对消息发送接口
+        registry.addInterceptor(appAuthInterceptor)
+                .addPathPatterns("/api/v1/message/**");
+
+        // Sa-Token 登录拦截器 - 针对管理后台接口
+        registry.addInterceptor(new SaInterceptor(handle -> StpUtil.checkLogin()))
+                .addPathPatterns("/api/**")
+                // 排除消息发送接口
+                .excludePathPatterns("/api/v1/message/**")
+                // 排除登录接口
+                .excludePathPatterns("/api/v1/auth/login")
+                // 排除健康检查
+                .excludePathPatterns("/api/health");
+    }
+}

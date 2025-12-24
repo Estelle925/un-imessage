@@ -1,0 +1,31 @@
+package com.unimessage.dto;
+
+import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * 消息批次响应 DTO
+ *
+ * @author 海明
+ */
+@Data
+public class LogMsgBatchRespDto implements Serializable {
+    private Long id;
+    private String batchNo;
+    private Long appId;
+    private Long templateId;
+    private String templateName;
+    private Long channelId;
+    private String channelName;
+    private Integer msgType;
+    private String title;
+    private String content;
+    private String contentParams;
+    private Integer totalCount;
+    private Integer successCount;
+    private Integer failCount;
+    private Integer status;
+    private LocalDateTime createdAt;
+}

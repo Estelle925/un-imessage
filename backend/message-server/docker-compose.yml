@@ -1,0 +1,11 @@
+version: '3'
+services:
+  unimessage:
+    build: .
+    ports:
+      - "8079:8079"
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped

@@ -1,0 +1,299 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1677ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0958d9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#52c41a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#389e0d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa8c16;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d46b08;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#722ed1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#531dab;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4d4f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cf1322;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1677ff"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#52c41a"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#fa8c16"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#722ed1"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ff4d4f"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#8c8c8c"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1100" height="700" fill="#f5f7fa"/>
+  
+  <!-- Title -->
+  <text x="550" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1f1f1f">UniMessage 消息发送流程图</text>
+  
+  <!-- Step Numbers -->
+  <g font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+    <!-- Step 1 -->
+    <circle cx="100" cy="100" r="16" fill="url(#blueGrad)"/>
+    <text x="100" y="105" text-anchor="middle" fill="white">1</text>
+    
+    <!-- Step 2 -->
+    <circle cx="280" cy="100" r="16" fill="url(#blueGrad)"/>
+    <text x="280" y="105" text-anchor="middle" fill="white">2</text>
+    
+    <!-- Step 3 -->
+    <circle cx="460" cy="100" r="16" fill="url(#greenGrad)"/>
+    <text x="460" y="105" text-anchor="middle" fill="white">3</text>
+    
+    <!-- Step 4 -->
+    <circle cx="640" cy="100" r="16" fill="url(#orangeGrad)"/>
+    <text x="640" y="105" text-anchor="middle" fill="white">4</text>
+    
+    <!-- Step 5 -->
+    <circle cx="820" cy="100" r="16" fill="url(#redGrad)"/>
+    <text x="820" y="105" text-anchor="middle" fill="white">5</text>
+    
+    <!-- Step 6 -->
+    <circle cx="1000" cy="100" r="16" fill="url(#purpleGrad)"/>
+    <text x="1000" y="105" text-anchor="middle" fill="white">6</text>
+  </g>
+  
+  <!-- Step Labels -->
+  <g font-family="Arial, sans-serif" font-size="10" fill="#666">
+    <text x="100" y="75" text-anchor="middle">客户端请求</text>
+    <text x="280" y="75" text-anchor="middle">接口接收</text>
+    <text x="460" y="75" text-anchor="middle">业务校验</text>
+    <text x="640" y="75" text-anchor="middle">创建批次</text>
+    <text x="820" y="75" text-anchor="middle">MQ异步</text>
+    <text x="1000" y="75" text-anchor="middle">渠道发送</text>
+  </g>
+  
+  <!-- Flow Boxes -->
+  
+  <!-- Step 1: Client -->
+  <g transform="translate(30, 130)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="url(#blueGrad)" filter="url(#shadow)"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">客户端应用</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="70" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">构建 SendRequest</text>
+    <text x="70" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• templateCode</text>
+    <text x="70" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">• recipients / params</text>
+  </g>
+  
+  <!-- Arrow 1->2 -->
+  <path d="M 170 180 L 200 180" stroke="#1677ff" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  <text x="185" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">HTTP</text>
+  
+  <!-- Step 2: Controller -->
+  <g transform="translate(210, 130)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#e6f4ff" stroke="#1677ff" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1677ff">MessageController</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#1677ff" stroke-width="1" opacity="0.3"/>
+    <text x="70" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">POST /api/v1/</text>
+    <text x="70" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">message/send</text>
+    <text x="70" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#8c8c8c">@RequestBody</text>
+  </g>
+  
+  <!-- Arrow 2->3 -->
+  <path d="M 350 180 L 380 180" stroke="#52c41a" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  
+  <!-- Step 3: Service Validation -->
+  <g transform="translate(390, 130)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#f6ffed" stroke="#52c41a" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#52c41a">MessageService</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#52c41a" stroke-width="1" opacity="0.3"/>
+    <text x="70" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">✓ 模板校验</text>
+    <text x="70" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">✓ 渠道校验</text>
+    <text x="70" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">✓ 接收者解析</text>
+    <text x="70" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">✓ Handler检查</text>
+  </g>
+  
+  <!-- Arrow 3->4 -->
+  <path d="M 530 180 L 560 180" stroke="#fa8c16" stroke-width="2" fill="none" marker-end="url(#arrowOrange)"/>
+  
+  <!-- Step 4: Create Batch -->
+  <g transform="translate(570, 130)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#fff7e6" stroke="#fa8c16" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fa8c16">创建批次记录</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#fa8c16" stroke-width="1" opacity="0.3"/>
+    <text x="70" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">LogMsgBatch</text>
+    <text x="70" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">• 生成 batchNo</text>
+    <text x="70" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">• 保存模板快照</text>
+    <text x="70" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">• status=处理中</text>
+  </g>
+  
+  <!-- Arrow 4->5 -->
+  <path d="M 710 180 L 740 180" stroke="#ff4d4f" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+  
+  <!-- Step 5: MQ -->
+  <g transform="translate(750, 130)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#fff1f0" stroke="#ff4d4f" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ff4d4f">MQ 消息队列</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#ff4d4f" stroke-width="1" opacity="0.3"/>
+    <text x="70" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">MqProducer.send()</text>
+    <text x="70" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">MqMessage:</text>
+    <text x="70" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#8c8c8c">batchId + request</text>
+    <text x="70" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#8c8c8c">+ recipientNames</text>
+  </g>
+  
+  <!-- Arrow 5->6 -->
+  <path d="M 890 180 L 920 180" stroke="#722ed1" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+  <text x="905" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">异步</text>
+  
+  <!-- Step 6: Channel Handler -->
+  <g transform="translate(930, 130)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">ChannelHandler</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="70" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">processBatch()</text>
+    <text x="70" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">→ 创建 Detail</text>
+    <text x="70" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">→ handler.send()</text>
+    <text x="70" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">→ 更新状态</text>
+  </g>
+  
+  <!-- Response Flow (Return) -->
+  <g transform="translate(30, 260)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#f6ffed" stroke="#52c41a" stroke-width="1"/>
+    <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#52c41a">SendResponse</text>
+    <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">success + batchNo</text>
+  </g>
+  
+  <!-- Return Arrow -->
+  <path d="M 280 260 L 170 260 L 170 285" stroke="#52c41a" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="225" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#52c41a">同步返回</text>
+  
+  <!-- Async Processing Detail -->
+  <g transform="translate(30, 340)">
+    <rect x="0" y="0" width="1040" height="320" rx="10" fill="white" stroke="#d9d9d9" stroke-width="1" filter="url(#shadow)"/>
+    <text x="520" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f1f1f">异步处理流程 (MQ Consumer)</text>
+    
+    <!-- processBatch -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="180" height="80" rx="6" fill="#fff1f0" stroke="#ff4d4f" stroke-width="1"/>
+      <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff4d4f">processBatch()</text>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">1. 查询批次信息</text>
+      <text x="90" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">2. 获取模板和渠道</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">3. 遍历接收者列表</text>
+    </g>
+    
+    <!-- Arrow -->
+    <path d="M 200 85 L 230 85" stroke="#8c8c8c" stroke-width="1.5" fill="none" marker-end="url(#arrowGray)"/>
+    
+    <!-- Create Detail -->
+    <g transform="translate(240, 45)">
+      <rect x="0" y="0" width="180" height="80" rx="6" fill="#fff7e6" stroke="#fa8c16" stroke-width="1"/>
+      <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fa8c16">创建 LogMsgDetail</text>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">每个接收者一条记录</text>
+      <text x="90" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">• recipient</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">• status=发送中</text>
+    </g>
+    
+    <!-- Arrow -->
+    <path d="M 420 85 L 450 85" stroke="#8c8c8c" stroke-width="1.5" fill="none" marker-end="url(#arrowGray)"/>
+    
+    <!-- Get Handler -->
+    <g transform="translate(460, 45)">
+      <rect x="0" y="0" width="180" height="80" rx="6" fill="#f9f0ff" stroke="#722ed1" stroke-width="1"/>
+      <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#722ed1">获取 Handler</text>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">ChannelHandlerFactory</text>
+      <text x="90" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">.getHandler(type)</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">策略模式路由</text>
+    </g>
+    
+    <!-- Arrow -->
+    <path d="M 640 85 L 670 85" stroke="#8c8c8c" stroke-width="1.5" fill="none" marker-end="url(#arrowGray)"/>
+    
+    <!-- Execute Send -->
+    <g transform="translate(680, 45)">
+      <rect x="0" y="0" width="180" height="80" rx="6" fill="url(#purpleGrad)"/>
+      <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">handler.send()</text>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">调用第三方 API</text>
+      <text x="90" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">渲染模板内容</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">执行实际发送</text>
+    </g>
+    
+    <!-- Arrow -->
+    <path d="M 860 85 L 890 85" stroke="#8c8c8c" stroke-width="1.5" fill="none" marker-end="url(#arrowGray)"/>
+    
+    <!-- Update Status -->
+    <g transform="translate(900, 45)">
+      <rect x="0" y="0" width="120" height="80" rx="6" fill="#f6ffed" stroke="#52c41a" stroke-width="1"/>
+      <text x="60" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#52c41a">更新状态</text>
+      <text x="60" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">Detail:</text>
+      <text x="60" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">成功/失败</text>
+      <text x="60" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">errorMsg</text>
+    </g>
+    
+    <!-- Channel Handlers Detail -->
+    <g transform="translate(20, 145)">
+      <rect x="0" y="0" width="1000" height="80" rx="6" fill="#fafafa" stroke="#d9d9d9" stroke-width="1"/>
+      <text x="500" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f1f1f">渠道处理器实现 (ChannelHandler 接口)</text>
+      
+      <g transform="translate(20, 35)">
+        <rect x="0" y="0" width="140" height="35" rx="4" fill="#fa8c16"/>
+        <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">AliyunSmsHandler</text>
+        <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">阿里云短信 SDK</text>
+      </g>
+      
+      <g transform="translate(175, 35)">
+        <rect x="0" y="0" width="140" height="35" rx="4" fill="#1677ff"/>
+        <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">EmailHandler</text>
+        <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">JavaMail SMTP</text>
+      </g>
+      
+      <g transform="translate(330, 35)">
+        <rect x="0" y="0" width="140" height="35" rx="4" fill="#07c160"/>
+        <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">WechatOfficialHandler</text>
+        <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">微信服务号模板消息</text>
+      </g>
+      
+      <g transform="translate(485, 35)">
+        <rect x="0" y="0" width="140" height="35" rx="4" fill="#1677ff"/>
+        <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">WechatWorkHandler</text>
+        <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">企业微信应用消息</text>
+      </g>
+      
+      <g transform="translate(640, 35)">
+        <rect x="0" y="0" width="140" height="35" rx="4" fill="#1677ff"/>
+        <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">DingTalkHandler</text>
+        <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">钉钉工作通知</text>
+      </g>
+      
+      <g transform="translate(795, 35)">
+        <rect x="0" y="0" width="140" height="35" rx="4" fill="#3370ff"/>
+        <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">FeishuHandler</text>
+        <text x="70" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">飞书消息通知</text>
+      </g>
+    </g>
+    
+    <!-- Final Update -->
+    <g transform="translate(20, 240)">
+      <rect x="0" y="0" width="1000" height="60" rx="6" fill="#f6ffed" stroke="#52c41a" stroke-width="1"/>
+      <text x="500" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#52c41a">批次状态更新</text>
+      <text x="250" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">successCount++ / failCount++</text>
+      <text x="500" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">→</text>
+      <text x="750" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">status: 10全部成功 | 20部分成功 | 30全部失败</text>
+    </g>
+  </g>
+  
+  <!-- Version -->
+  <text x="1050" y="685" text-anchor="end" font-family="Arial, sans-serif" font-size="9" fill="#bfbfbf">v1.0 | 2025-12-24</text>
+</svg>

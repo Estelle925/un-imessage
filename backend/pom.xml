@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.unimessage</groupId>
+    <artifactId>unimessage-server</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>unimessage-server</name>
+    <description>Unified Message Push Service</description>
+
+    <modules>
+        <module>message-api</module>
+        <module>message-server</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Core Dependencies -->
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
+
+        <!-- Tools -->
+        <fastjson.version>2.0.43</fastjson.version>
+        <hutool.version>5.8.25</hutool.version>
+
+        <!-- 3rd Party SDKs -->
+        <aliyun-sms.version>2.0.24</aliyun-sms.version>
+        <weixin-java.version>4.6.0</weixin-java.version>
+        <dingtalk.version>2.0.14</dingtalk.version>
+        <lark.version>2.0.28</lark.version>
+        <sa-token.version>1.38.0</sa-token.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Sa-Token 权限认证 -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot3-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <!-- Web Starter -->
+            <!-- Database -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- Redis -->
+            <!-- Tools -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- Mail Support -->
+            <!-- Aliyun SMS SDK -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dysmsapi20170525</artifactId>
+                <version>${aliyun-sms.version}</version>
+            </dependency>
+
+            <!-- WeChat Official Account -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-mp</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
+            <!-- WeChat Work -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-cp</artifactId>
+                <version>${weixin-java.version}</version>
+            </dependency>
+
+            <!-- DingTalk SDK -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dingtalk</artifactId>
+                <version>${dingtalk.version}</version>
+            </dependency>
+
+            <!-- Feishu (Lark) SDK -->
+            <dependency>
+                <groupId>com.larksuite.oapi</groupId>
+                <artifactId>oapi-sdk</artifactId>
+                <version>${lark.version}</version>
+            </dependency>
+
+            <!-- Test -->
+            <!-- Internal Modules -->
+            <dependency>
+                <groupId>com.unimessage</groupId>
+                <artifactId>message-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.unimessage</groupId>
+                <artifactId>message-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+    </build>
+
+    <distributionManagement>
+        <!-- 发布到那个仓库，id对应maven中server下的id做验证-->
+        <repository>
+            <id>release-local</id>
+            <url>http://192.168.32.169:8081/repository/release-local/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot-local</id>
+            <url>http://192.168.32.169:8081/repository/snapshot-local/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
