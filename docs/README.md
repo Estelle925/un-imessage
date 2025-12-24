@@ -345,7 +345,7 @@ mysql -u root -p unimessage < backend/message-server/src/main/resources/sql/test
 
 ## 📄 License
 
-MIT License
+Apache2.0 License
 
 ---
 
