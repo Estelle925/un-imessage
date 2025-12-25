@@ -16,6 +16,7 @@ import com.unimessage.handler.ChannelHandlerFactory;
 import com.unimessage.mapper.*;
 import com.unimessage.mq.producer.MqProducer;
 import com.unimessage.service.MessageService;
+import com.unimessage.service.RateLimiterService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,8 @@ public class MessageServiceImpl implements MessageService {
     private ChannelHandlerFactory handlerFactory;
     @Resource
     private MqProducer mqProducer;
+    @Resource
+    private RateLimiterService rateLimiterService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -58,6 +61,16 @@ public class MessageServiceImpl implements MessageService {
         }
         if (template.getStatus() != 1) {
             return SendResponse.fail("模板已禁用");
+        }
+
+        // 检查频率限制 (基于 App + Template)
+        if (template.getRateLimit() != null && template.getRateLimit() > 0) {
+            Long appId = AppContext.getCurrentAppId();
+            // Key: un-imessage:limiter:app:{appId}:template:{code}
+            String limitKey = "un-imessage:limiter:app:" + (appId != null ? appId : "0") + ":template:" + template.getCode();
+            if (!rateLimiterService.tryAcquire(limitKey, template.getRateLimit(), 1)) {
+                return SendResponse.fail("发送频率超限，请稍后重试");
+            }
         }
 
         SysChannel channel = getChannel(template.getChannelId());
