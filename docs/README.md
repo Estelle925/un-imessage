@@ -327,7 +327,7 @@ public class NewChannelHandler implements ChannelHandler {
 
 ### 切换消息队列
 
-项目支持 Kafka 和 RocketMQ，通过配置切换:
+项目支持默认使用Redis作为消息队列，也支持切换到 Kafka 和 RocketMQ，通过配置切换:
 
 ```yaml
 # Kafka
