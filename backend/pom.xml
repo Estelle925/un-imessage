@@ -18,6 +18,7 @@
     <modules>
         <module>message-api</module>
         <module>message-server</module>
+        <module>mcp</module>
     </modules>
 
     <properties>

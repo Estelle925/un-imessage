@@ -1,0 +1,11 @@
+server:
+  port: 8090
+
+unimessage:
+  mcp:
+    server-name: unimessage-mcp
+    server-version: 0.1.0
+    protocol-version: 2024-11-05
+    api-base-url: http://localhost:8079
+    app-key:
+    app-secret:
